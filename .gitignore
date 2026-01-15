@@ -4,6 +4,9 @@ __pycache__/
 *$py.class
 *.pyc
 
+# Archivos de configuración con credenciales
+config.py
+
 # Entornos virtuales
 venv/
 env/
