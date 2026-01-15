@@ -312,7 +312,7 @@ class PestanaRegistro:
         
         ventana = Toplevel()
         ventana.title("Sistema Hospitalario - Alerta COVID-19")
-        ventana.geometry("520x400")
+        ventana.geometry("520x520")
         ventana.resizable(False, False)
         ventana.configure(bg="#ffffff")
         
@@ -325,8 +325,8 @@ class PestanaRegistro:
         # Centrar ventana
         ventana.update_idletasks()
         x = (ventana.winfo_screenwidth() - 520) // 2
-        y = (ventana.winfo_screenheight() - 400) // 2
-        ventana.geometry(f"520x400+{x}+{y}")
+        y = (ventana.winfo_screenheight() - 520) // 2
+        ventana.geometry(f"520x520+{x}+{y}")
         
         # Encabezado con color rojo de alerta
         header = tk.Frame(ventana, bg="#E74C3C", height=70)

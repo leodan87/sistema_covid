@@ -2,34 +2,6 @@
 ===========================================
 SISTEMA DE REGISTRO MÉDICO COVID-19
 ===========================================
-Universidad Tecnológica Empresarial de Guayaquil
-Programación de Alto Nivel - Unidad 3
-
-Autor: Leodan Garcia
-
-===========================================
-INSTRUCCIONES DE USO:
-===========================================
-1. Pestaña "Registro de Pacientes":
-   - Buscar paciente por Historia Laboral
-   - Registrar nuevos pacientes
-   - Seleccionar síntomas (máximo 4)
-   - Verificar diagnóstico COVID-19
-   - Guardar consulta médica
-
-2. Criterio de Diagnóstico COVID-19:
-   ⚠️ El paciente debe tener LOS 3 SÍNTOMAS:
-      • Fiebre
-      • Fatiga
-      • Pérdida de olfato y gusto
-   
-   Si tiene los 3 → POSITIVO COVID-19
-   Si tiene menos → NEGATIVO COVID-19
-
-3. Pestaña "Consulta COVID-19":
-   - Ver pacientes diagnosticados con COVID
-   - Filtrar por fecha o ver todos
-===========================================
 """
 
 import tkinter as tk
