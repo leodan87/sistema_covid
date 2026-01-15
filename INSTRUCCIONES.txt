@@ -1,0 +1,55 @@
+═══════════════════════════════════════════════════════════════
+   INSTRUCCIONES RÁPIDAS - SISTEMA COVID-19
+═══════════════════════════════════════════════════════════════
+
+   ANTES DE EJECUTAR (IMPORTANTE):
+
+1. Abre el archivo: config.py
+2. Cambia la contraseña de MySQL en la línea 10:
+   
+   'password': '',  ← COLOCA AQUÍ TU CONTRASEÑA DE MySQL
+
+3. Guarda el archivo
+
+
+═══════════════════════════════════════════════════════════════
+   PASOS PARA EJECUTAR EL PROYECTO:
+═══════════════════════════════════════════════════════════════
+
+1️⃣ Instalar dependencias:
+   pip install mysql-connector-python
+
+2️⃣ Crear la base de datos:
+   mysql -u root -p < database/crear_base_datos.sql
+   (Te pedirá tu contraseña de MySQL)
+
+3️⃣ Ejecutar la aplicación:
+   python main.py
+
+
+═══════════════════════════════════════════════════════════════
+   CRITERIO DE DIAGNÓSTICO COVID-19:
+═══════════════════════════════════════════════════════════════
+
+Para que salga POSITIVO COVID-19, el paciente DEBE tener
+los 3 síntomas:
+
+   ✅ Fiebre
+   ✅ Fatiga  
+   ✅ Pérdida de olfato y gusto
+
+Si tiene menos de 3 → NEGATIVO COVID-19
+
+
+═══════════════════════════════════════════════════════════════
+   PACIENTES DE PRUEBA:
+═══════════════════════════════════════════════════════════════
+
+Historia: HL-001
+Nombre: Martha Camacho Toledo
+
+Historia: HL-002
+Nombre: Carlos Jimenez Torres
+
+
+═══════════════════════════════════════════════════════════════
