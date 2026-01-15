@@ -4,12 +4,21 @@
 
    ANTES DE EJECUTAR (IMPORTANTE):
 
-1. Abre el archivo: config.py
-2. Cambia la contraseña de MySQL en la línea 10:
+1. Si descargaste el proyecto de GitHub:
+   - Copia el archivo: config.example.py
+   - Renómbralo como: config.py
+
+2. Abre el archivo: config.py
+
+3. Cambia la contraseña de MySQL (línea 12):
    
    'password': '',  ← COLOCA AQUÍ TU CONTRASEÑA DE MySQL
 
-3. Guarda el archivo
+4. Si tu usuario NO es 'root', cámbialo también (línea 11):
+   
+   'user': 'root',  ← Cámbialo si usas otro usuario
+
+5. Guarda el archivo config.py
 
 
 ═══════════════════════════════════════════════════════════════
@@ -28,28 +37,75 @@
 
 
 ═══════════════════════════════════════════════════════════════
+   SÍNTOMAS DISPONIBLES EN EL SISTEMA:
+═══════════════════════════════════════════════════════════════
+
+El médico puede seleccionar hasta 4 síntomas por consulta:
+
+   • Fiebre
+   • Fatiga
+   • Pérdida de olfato y gusto
+   • Tos seca
+   • Dolor de cabeza
+   • Dolor muscular
+   • Dificultad para respirar
+   • Escalofríos
+   • Congestión nasal
+   • Dolor de garganta
+
+
+═══════════════════════════════════════════════════════════════
    CRITERIO DE DIAGNÓSTICO COVID-19:
 ═══════════════════════════════════════════════════════════════
 
-Para que salga POSITIVO COVID-19, el paciente DEBE tener
-los 3 síntomas:
+   IMPORTANTE PARA EVALUACIÓN:
 
-   ✅ Fiebre
-   ✅ Fatiga  
-   ✅ Pérdida de olfato y gusto
+Para que salga POSITIVO COVID-19, el paciente DEBE tener
+LOS 3 SÍNTOMAS OBLIGATORIOS:
+
+   1. Fiebre
+   2. Fatiga  
+   3. Pérdida de olfato y gusto
 
 Si tiene menos de 3 → NEGATIVO COVID-19
+Si tiene los 3 síntomas → POSITIVO COVID-19
 
 
 ═══════════════════════════════════════════════════════════════
-   PACIENTES DE PRUEBA:
+   USO DEL SISTEMA:
+═══════════════════════════════════════════════════════════════
+
+REGISTRO DE PACIENTES:
+- Buscar por historia laboral
+- Registrar nuevos pacientes
+- Al buscar un paciente con COVID-19 aparece alerta con:
+  * Fecha de diagnóstico
+  * Días en aislamiento
+  * Estado según período (0-9 días, 10-13 días, 14+ días)
+
+DIAGNÓSTICO COVID-19:
+- Seleccionar hasta 4 síntomas
+- Clic en "Verificar Diagnóstico COVID"
+- Ver animación de análisis de laboratorio
+- Resultado profesional con indicaciones médicas
+
+CONSULTA COVID-19:
+- Ver todos los pacientes COVID registrados
+- Filtrar por fecha (formato: AAAA-MM-DD)
+- Doble clic en fila para ver tratamiento completo
+
+
+═══════════════════════════════════════════════════════════════
+   PACIENTES DE PRUEBA EN LA BASE DE DATOS:
 ═══════════════════════════════════════════════════════════════
 
 Historia: HL-001
 Nombre: Martha Camacho Toledo
+Cédula: 0912345678
 
 Historia: HL-002
 Nombre: Carlos Jimenez Torres
+Cédula: 0923456789
 
 
 ═══════════════════════════════════════════════════════════════
