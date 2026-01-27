@@ -6,6 +6,7 @@ SISTEMA DE REGISTRO MÉDICO COVID-19
 
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image, ImageTk
 from paciente import PestanaRegistro
 from consulta import PestanaConsulta
 
@@ -30,25 +31,42 @@ def main():
     ventana.geometry(f"{ancho}x{alto}+{x}+{y}")
     
     # Título con degradado profesional
-    titulo_frame = tk.Frame(ventana, bg="#1A252F", height=70)
+    titulo_frame = tk.Frame(ventana, bg="#0D7377", height=70)
     titulo_frame.pack(fill="x")
     titulo_frame.pack_propagate(False)
     
+    # Cargar el ícono del hospital
+    try:
+        icono_img = Image.open('assets/hospital_icon.ico')
+        icono_img = icono_img.resize((56, 56), Image.Resampling.LANCZOS)
+        icono_photo = ImageTk.PhotoImage(icono_img)
+    except:
+        icono_photo = None
+    
+    # Frame para organizar ícono y texto horizontalmente
+    titulo_container = tk.Frame(titulo_frame, bg="#0D7377")
+    titulo_container.pack(pady=20)
+    
+    # Mostrar ícono si se cargó correctamente
+    if icono_photo:
+        icono_label = tk.Label(titulo_container, image=icono_photo, bg="#0D7377")
+        icono_label.image = icono_photo  # Mantener referencia
+        icono_label.pack(side="left", padx=(0, 10))
+    
     titulo = tk.Label(
-        titulo_frame,
-        text="🏥 Sistema de Registro Médico COVID-19",
+        titulo_container,
+        text="Sistema de Registro Médico COVID-19",
         font=("Segoe UI", 18, "bold"),
-        bg="#1A252F",
-        fg="#FFFFFF",
-        pady=20
+        bg="#0D7377",
+        fg="#FFFFFF"
     )
-    titulo.pack()
+    titulo.pack(side="left")
     
     subtitulo = tk.Label(
         titulo_frame,
         text="Universidad Tecnológica Empresarial de Guayaquil | Sistema Hospitalario",
         font=("Segoe UI", 9),
-        bg="#1A252F",
+        bg="#0D7377",
         fg="#95A5A6"
     )
     subtitulo.pack(pady=(0, 10))

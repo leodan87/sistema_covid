@@ -324,25 +324,25 @@ class PestanaRegistro:
         
         # Centrar ventana
         ventana.update_idletasks()
-        x = (ventana.winfo_screenwidth() - 520) // 2
-        y = (ventana.winfo_screenheight() - 520) // 2
-        ventana.geometry(f"520x520+{x}+{y}")
+        x = (ventana.winfo_screenwidth() - 450) // 2
+        y = (ventana.winfo_screenheight() - 480) // 2
+        ventana.geometry(f"450x480+{x}+{y}")
         
         # Encabezado con color rojo de alerta
-        header = tk.Frame(ventana, bg="#E74C3C", height=70)
+        header = tk.Frame(ventana, bg="#E74C3C", height=60)
         header.pack(fill="x")
         header.pack_propagate(False)
         
         Label(header, text="⚠️ PACIENTE CON COVID-19", 
-              font=("Arial", 15, "bold"), bg="#E74C3C", fg="white").pack(pady=20)
+              font=("Arial", 14, "bold"), bg="#E74C3C", fg="white").pack(pady=15)
         
         # Contenido
         contenido = tk.Frame(ventana, bg="#ffffff")
-        contenido.pack(fill="both", expand=True, padx=30, pady=15)
+        contenido.pack(fill="both", expand=True, padx=20, pady=12)
         
         # Icono de alerta
-        Label(contenido, text="🦠", font=("Arial", 50), 
-              bg="#ffffff", fg="#E74C3C").pack(pady=8)
+        Label(contenido, text="🦠", font=("Arial", 40), 
+              bg="#ffffff", fg="#E74C3C").pack(pady=5)
         
         # Nombre del paciente
         Label(contenido, text=nombre_paciente, 
@@ -605,60 +605,6 @@ class PestanaRegistro:
                bg=color_header, fg="white", font=("Arial", 10, "bold"), 
                padx=35, pady=10, border=0, cursor="hand2", 
                relief="flat", activebackground=color_boton, activeforeground="white").pack(pady=15)
-    
-    
-    def mostrar_paciente_encontrado(self, paciente):
-        """Muestra ventana profesional con información del paciente encontrado"""
-        from tkinter import Toplevel, Label, Button
-        from datetime import datetime
-        
-        ventana = Toplevel()
-        ventana.title("Sistema Hospitalario - Paciente Encontrado")
-        ventana.geometry("500x350")
-        ventana.resizable(False, False)
-        ventana.configure(bg="#ffffff")
-        
-        # Centrar ventana
-        ventana.update_idletasks()
-        x = (ventana.winfo_screenwidth() - 500) // 2
-        y = (ventana.winfo_screenheight() - 350) // 2
-        ventana.geometry(f"500x350+{x}+{y}")
-        
-        # Encabezado con color institucional
-        header = tk.Frame(ventana, bg="#2C3E50", height=80)
-        header.pack(fill="x")
-        
-        Label(header, text="✓ PACIENTE ENCONTRADO", 
-              font=("Arial", 18, "bold"), bg="#2C3E50", fg="white").pack(pady=25)
-        
-        # Contenido
-        contenido = tk.Frame(ventana, bg="#ffffff")
-        contenido.pack(fill="both", expand=True, padx=30, pady=20)
-        
-        # Información del paciente con formato profesional
-        info = [
-            ("📋 Historia Laboral:", paciente['historia_laboral']),
-            ("🆔 Cédula:", paciente['cedula']),
-            ("👤 Paciente:", paciente['nombres_completos']),
-            ("📞 Teléfono:", paciente['telefono']),
-            ("📍 Dirección:", paciente['direccion'])
-        ]
-        
-        for i, (etiqueta, valor) in enumerate(info):
-            # Etiqueta
-            Label(contenido, text=etiqueta, font=("Arial", 10, "bold"), 
-                  bg="#ffffff", fg="#2C3E50", anchor="w").grid(row=i, column=0, sticky="w", pady=5, padx=5)
-            # Valor
-            Label(contenido, text=valor, font=("Arial", 10), 
-                  bg="#ffffff", fg="#34495E", anchor="w").grid(row=i, column=1, sticky="w", pady=5, padx=10)
-        
-        # Pie con botón
-        footer = tk.Frame(ventana, bg="#ECF0F1", height=60)
-        footer.pack(fill="x", side="bottom")
-        
-        Button(footer, text="✓ Aceptar", command=ventana.destroy, 
-               bg="#27AE60", fg="white", font=("Arial", 11, "bold"), 
-               padx=30, pady=8, border=0, cursor="hand2").pack(pady=10)
     
     
     def guardar_paciente(self):
