@@ -18,11 +18,11 @@ def conectar():
 
 
 def buscar_paciente_por_historia(historia_laboral):
-    """Busca un paciente por su historia laboral"""
+    """Busca un paciente por su historia clínica"""
     conexion = conectar()
     if not conexion:
         return None
-    
+
     try:
         cursor = conexion.cursor(dictionary=True)
         cursor.execute(
@@ -41,12 +41,12 @@ def verificar_covid_paciente(paciente_id):
     conexion = conectar()
     if not conexion:
         return None
-    
+
     try:
         cursor = conexion.cursor(dictionary=True)
         cursor.execute("""
-            SELECT fecha_consulta, prescripcion_medica 
-            FROM consultas 
+            SELECT fecha_consulta, prescripcion_medica
+            FROM consultas
             WHERE paciente_id = %s AND diagnostico_covid = TRUE
             ORDER BY fecha_consulta DESC
             LIMIT 1
@@ -66,10 +66,10 @@ def guardar_paciente(datos, paciente_id=None):
     conexion = conectar()
     if not conexion:
         return None
-    
+
     try:
         cursor = conexion.cursor()
-        
+
         if paciente_id:
             # Actualizar existente
             cursor.execute("""
@@ -81,15 +81,15 @@ def guardar_paciente(datos, paciente_id=None):
         else:
             # Insertar nuevo
             cursor.execute("""
-                INSERT INTO pacientes 
+                INSERT INTO pacientes
                 (historia_laboral, cedula, nombres_completos, telefono, direccion)
                 VALUES (%s, %s, %s, %s, %s)
             """, datos)
             paciente_id = cursor.lastrowid
-        
+
         conexion.commit()
         return paciente_id
-    
+
     except mysql.connector.IntegrityError:
         messagebox.showerror("Error", "Ya existe un paciente con esa historia o cédula.")
         return None
@@ -103,16 +103,16 @@ def guardar_consulta(paciente_id, fecha, sintomas, es_covid, prescripcion):
     conexion = conectar()
     if not conexion:
         return False
-    
+
     try:
         cursor = conexion.cursor()
         cursor.execute("""
-            INSERT INTO consultas 
+            INSERT INTO consultas
             (paciente_id, fecha_consulta, sintoma_1, sintoma_2, sintoma_3, sintoma_4,
              diagnostico_covid, prescripcion_medica)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """, (paciente_id, fecha, *sintomas, es_covid, prescripcion))
-        
+
         conexion.commit()
         return True
     finally:
@@ -125,10 +125,10 @@ def obtener_pacientes_covid(fecha=None):
     conexion = conectar()
     if not conexion:
         return []
-    
+
     try:
         cursor = conexion.cursor(dictionary=True)
-        
+
         if fecha:
             cursor.execute("""
                 SELECT p.historia_laboral, p.cedula, p.nombres_completos,
@@ -147,7 +147,7 @@ def obtener_pacientes_covid(fecha=None):
                 WHERE c.diagnostico_covid = TRUE
                 ORDER BY c.fecha_consulta DESC
             """)
-        
+
         return cursor.fetchall()
     finally:
         cursor.close()
