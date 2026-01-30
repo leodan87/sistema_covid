@@ -136,7 +136,7 @@ def obtener_pacientes_covid(fecha=None):
                 FROM consultas c
                 JOIN pacientes p ON c.paciente_id = p.id
                 WHERE c.diagnostico_covid = TRUE AND c.fecha_consulta = %s
-                ORDER BY c.fecha_consulta DESC
+                ORDER BY p.historia_laboral ASC
             """, (fecha,))
         else:
             cursor.execute("""
@@ -145,7 +145,7 @@ def obtener_pacientes_covid(fecha=None):
                 FROM consultas c
                 JOIN pacientes p ON c.paciente_id = p.id
                 WHERE c.diagnostico_covid = TRUE
-                ORDER BY c.fecha_consulta DESC
+                ORDER BY p.historia_laboral ASC
             """)
 
         return cursor.fetchall()

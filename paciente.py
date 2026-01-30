@@ -256,7 +256,7 @@ class PestanaRegistro:
 
         ventana = Toplevel()
         ventana.title("Sistema Hospitalario - Confirmación")
-        ventana.geometry("450x300")
+        ventana.geometry("450x340")
         ventana.resizable(False, False)
         ventana.configure(bg="#ffffff")
 
@@ -269,8 +269,8 @@ class PestanaRegistro:
         # Centrar ventana
         ventana.update_idletasks()
         x = (ventana.winfo_screenwidth() - 450) // 2
-        y = (ventana.winfo_screenheight() - 300) // 2
-        ventana.geometry(f"450x300+{x}+{y}")
+        y = (ventana.winfo_screenheight() - 340) // 2
+        ventana.geometry(f"450x340+{x}+{y}")
 
         # Encabezado con color verde (éxito)
         header = tk.Frame(ventana, bg="#27AE60", height=60)
@@ -402,7 +402,7 @@ class PestanaRegistro:
 
         ventana = Toplevel()
         ventana.title("Sistema Hospitalario - Confirmación")
-        ventana.geometry("450x280")
+        ventana.geometry("450x340")
         ventana.resizable(False, False)
         ventana.configure(bg="#ffffff")
 
@@ -415,8 +415,8 @@ class PestanaRegistro:
         # Centrar ventana
         ventana.update_idletasks()
         x = (ventana.winfo_screenwidth() - 450) // 2
-        y = (ventana.winfo_screenheight() - 280) // 2
-        ventana.geometry(f"450x280+{x}+{y}")
+        y = (ventana.winfo_screenheight() - 340) // 2
+        ventana.geometry(f"450x340+{x}+{y}")
 
         # Encabezado con color azul
         header = tk.Frame(ventana, bg="#3498DB", height=60)
